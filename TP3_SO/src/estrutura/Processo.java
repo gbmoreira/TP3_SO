@@ -3,17 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package estrutura;
 
 /**
  *
- * @author Gabriela
+ * @author Gabriela Nome do processo, tempo necessário para concluir sua
+ * execução (segundos) e tamanho que ocupará em memória (em MB). Exemplo de
+ * arquivo de entrada:
  */
 public class Processo {
 
-    Processo(String string, double parseDouble, int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String nome;
+    private double tempoExecucao;
+    private int tamanho;
+
+    Processo(String nome, double tempoExecucao, int tamanho) {
+        this.nome = nome;
+        this.tempoExecucao = tempoExecucao;
+        this.tamanho = tamanho;
     }
-    
 }

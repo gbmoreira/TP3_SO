@@ -5,6 +5,7 @@
  */
 package gui;
 
+import estrutura.Arquivo;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,6 +23,7 @@ public class Main extends javax.swing.JFrame {
      */
     private File arquivo, diretorio;
     private String caminho;
+    private Arquivo a = new Arquivo();
 
     public Main() {
         diretorio = new File("/Users/Gabriela/Dropbox/Faculdade");
@@ -101,6 +103,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             caminho = this.caminhoArquivo();
+            a.lerArquivo(caminho);
         } catch (Exception e) {
         }
 
