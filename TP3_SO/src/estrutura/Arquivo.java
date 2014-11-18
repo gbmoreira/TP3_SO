@@ -14,8 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -23,10 +22,14 @@ import java.util.logging.Logger;
  */
 public class Arquivo {
     
+
     
     private String caminho;
     
+
+
      public ArrayList<Processo> lerArquivo() throws IOException {
+
         ArrayList<Processo> entrada = new ArrayList<Processo>();
         File file = new File(caminho);
         String linha;
@@ -35,7 +38,9 @@ public class Arquivo {
             while ((linha = input.readLine()) != null) {
                 String processo[] = linha.split(", ");
                 entrada.add(new Processo(processo[0], Double.parseDouble(processo[1]), Integer.parseInt(processo[2])));
-                
+
+                System.out.println("OK");
+
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Erro ao ler arquivo!");

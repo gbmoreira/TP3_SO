@@ -7,7 +7,9 @@ package estrutura;
 
 /**
  *
- * @author Gabriela
+ * @author Gabriela Nome do processo, tempo necessário para concluir sua
+ * execução (segundos) e tamanho que ocupará em memória (em MB). Exemplo de
+ * arquivo de entrada:
  */
 public class Processo {
 
@@ -66,8 +68,5 @@ public class Processo {
 
     public void setTempoFinal(double tempoFinal) {
         this.tempoFinal = tempoFinal;
-    }
-    
-    
-
+}
 }
