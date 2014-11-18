@@ -7,9 +7,7 @@ package estrutura;
 
 /**
  *
- * @author Gabriela Nome do processo, tempo necessário para concluir sua
- * execução (segundos) e tamanho que ocupará em memória (em MB). Exemplo de
- * arquivo de entrada:
+ * @author Gabriela 
  */
 public class Processo {
 
