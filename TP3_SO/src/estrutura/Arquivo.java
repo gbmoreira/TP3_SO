@@ -22,8 +22,7 @@ import java.util.ArrayList;
  */
 public class Arquivo {
     
-
-    
+   
     private String caminho;
     
 
@@ -38,8 +37,6 @@ public class Arquivo {
             while ((linha = input.readLine()) != null) {
                 String processo[] = linha.split(", ");
                 entrada.add(new Processo(processo[0], Double.parseDouble(processo[1]), Integer.parseInt(processo[2])));
-
-                System.out.println("OK");
 
             }
         } catch (FileNotFoundException ex) {
