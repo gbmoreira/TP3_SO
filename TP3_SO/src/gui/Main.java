@@ -5,6 +5,8 @@
  */
 package gui;
 
+import algoritmos.RoundRobin;
+import estrutura.Arquivo;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,9 +24,10 @@ public class Main extends javax.swing.JFrame {
      */
     private File arquivo, diretorio;
     private String caminho;
+    private Arquivo a = new Arquivo();
 
     public Main() {
-        diretorio = new File("/Users/Gabriela/Dropbox/Faculdade");
+        diretorio = new File("/home/gabriela/Dropbox/Faculdade/8Periodo/SO/TP3_SO/TP3_SO/src/arquivoEntrada/");
         initComponents();
     }
 
@@ -101,6 +104,11 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             caminho = this.caminhoArquivo();
+            a.setCaminho(caminho);
+            RoundRobin robin = new RoundRobin();
+            robin.setArquivo(a);
+            robin.escalonar();
+
         } catch (Exception e) {
         }
 

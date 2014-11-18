@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package estrutura;
 
 /**
@@ -12,8 +11,63 @@ package estrutura;
  */
 public class Processo {
 
-    Processo(String string, double parseDouble, int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private String nome;
+    private double tempoExecucao;
+    private int tamanho;
+    private boolean pronto = false;
+    private double tempoFinal;
+  
+
+    Processo(String nome, double tempoExecucao, int tamanho) {
+        this.nome = nome;
+        this.tempoExecucao = tempoExecucao;
+        this.tamanho = tamanho;
+    }
+
+    public boolean getEstado() {
+        return pronto;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getTempoExecucao() {
+        return tempoExecucao;
+    }
+
+    public void setTempoExecucao(double tempoExecucao) {
+        this.tempoExecucao = tempoExecucao;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public boolean isPronto() {
+        return pronto;
+    }
+
+    public void setPronto(boolean pronto) {
+        this.pronto = pronto;
+    }
+
+    public double getTempoFinal() {
+        return tempoFinal;
+    }
+
+    public void setTempoFinal(double tempoFinal) {
+        this.tempoFinal = tempoFinal;
     }
     
+    
+
 }

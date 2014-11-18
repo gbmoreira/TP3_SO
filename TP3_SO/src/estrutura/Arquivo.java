@@ -22,17 +22,20 @@ import java.util.logging.Logger;
  * @author Gabriela
  */
 public class Arquivo {
-     public ArrayList<Processo> carregaProcessos() throws IOException {
+    
+    
+    private String caminho;
+    
+     public ArrayList<Processo> lerArquivo() throws IOException {
         ArrayList<Processo> entrada = new ArrayList<Processo>();
-        File file = new File("entrada.txt");
+        File file = new File(caminho);
         String linha;
         try {
             BufferedReader input = new BufferedReader(new FileReader(file));
             while ((linha = input.readLine()) != null) {
-
                 String processo[] = linha.split(", ");
                 entrada.add(new Processo(processo[0], Double.parseDouble(processo[1]), Integer.parseInt(processo[2])));
-
+                
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Erro ao ler arquivo!");
@@ -41,7 +44,7 @@ public class Arquivo {
         return entrada;
     }
 
-    public void escreveArquivo(String nomeProcesso, String tempo,String escalonador) {
+    public void escreverArquivo(String nomeProcesso, String tempo,String escalonador) {
         try {
             FileWriter arq = new FileWriter("Saida"+escalonador+".txt", true);
             PrintWriter output = new PrintWriter(arq);
@@ -55,4 +58,10 @@ public class Arquivo {
     public String format(double x) {
         return String.format("%.2f", x);
     }
+
+    public void setCaminho(String caminho) {
+        this.caminho = caminho;
+    }
+    
+    
 }
