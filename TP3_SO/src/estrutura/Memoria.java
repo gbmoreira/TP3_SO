@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 
-package algoritmos;
+package estrutura;
+
+import java.util.ArrayList;
 
 /**
  *
- * @author Gabriela
+ * @author gabriela
  */
-public class BestFit {
+public class Memoria {
+    
+    ArrayList<Bloco> memoria = new ArrayList<>();
     
     
     
