@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package algoritmos;
+package estrutura;
 
 /**
  *
- * @author Gabriela
+ * @author gabriela
  */
-public class BestFit {
+public class Memoria {
     
     
     
