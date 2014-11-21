@@ -11,5 +11,5 @@ package algoritmos;
  * @author Gabriela
  */
 public class FirstFit {
-    
+       
 }

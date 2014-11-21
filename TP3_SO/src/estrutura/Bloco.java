@@ -11,14 +11,14 @@ package estrutura;
  */
 public class Bloco {
     private int tamanho;
-    private boolean livre=true;
+    private boolean livre = true;
     Processo processo;
     
     public Bloco(Processo processo){
         livre = false;
         this.processo=processo;
         tamanho = processo.getTamanho();
-    }
+    }    
 
     public int getTamanho() {
         return tamanho;

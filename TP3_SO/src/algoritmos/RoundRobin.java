@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class RoundRobin {
 
-    private double quantum = 30.0, tempoTotal = 0.0;
+    private double quantum = 5.0, tempoTotal = 0.0;
     private String nome, tempoTermino;
     private boolean fim = false;
     private Arquivo arquivo = new Arquivo();
@@ -34,7 +34,7 @@ public class RoundRobin {
         while (!fim) {
             for (int i = 0; i < listaProcesso.size(); i++) {
                 fim = true;
-                if (listaProcesso.get(i).getEstado()) {
+                if (listaProcesso.get(i).isPronto()) {
                     fim = true;
                     continue;
                 }

@@ -6,14 +6,10 @@
 package estrutura;
 
 /**
- *
-<<<<<<< HEAD
  * @author Gabriela 
-=======
- * @author Gabriela Nome do processo, tempo necessário para concluir sua
+ * Nome do processo, tempo necessário para concluir sua
  * execução (segundos) e tamanho que ocupará em memória (em MB). Exemplo de
  * arquivo de entrada:
->>>>>>> origin/master
  */
 public class Processo {
 
@@ -22,7 +18,6 @@ public class Processo {
     private int tamanho;
     private boolean pronto = false;
     private double tempoFinal;
-  
 
     Processo(String nome, double tempoExecucao, int tamanho) {
         this.nome = nome;
@@ -30,8 +25,7 @@ public class Processo {
         this.tamanho = tamanho;
     }
 
-
-    public boolean getEstado() {
+    public boolean isPronto() {
         return pronto;
     }
 
@@ -59,10 +53,6 @@ public class Processo {
         this.tamanho = tamanho;
     }
 
-    public boolean isPronto() {
-        return pronto;
-    }
-
     public void setPronto(boolean pronto) {
         this.pronto = pronto;
     }
@@ -73,5 +63,5 @@ public class Processo {
 
     public void setTempoFinal(double tempoFinal) {
         this.tempoFinal = tempoFinal;
-}
+    }
 }
