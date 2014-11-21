@@ -27,8 +27,14 @@ public class Main extends javax.swing.JFrame {
     private String caminho;
 
     public Main() {
-        diretorio = new File("/home/gabriela/Dropbox/Faculdade/8Periodo/SO/TP3_SO/TP3_SO/src/arquivoEntrada/");
-        caminho = this.caminhoArquivo();
+        diretorio = new File("/home/gabriela/Dropbox/Faculdade/8Periodo/SO/TP3/TP3_SO/TP3_SO/src/arquivoEntrada/");
+        try {
+            caminho = this.caminhoArquivo();
+
+        } catch (Exception e) {
+            
+        }
+
         Controlador controlador = new Controlador(caminho);
         initComponents();
     }

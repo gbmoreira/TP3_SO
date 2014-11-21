@@ -6,6 +6,8 @@
 package algoritmos;
 
 import estrutura.Arquivo;
+import estrutura.Bloco;
+import estrutura.Memoria;
 import estrutura.Processo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class RoundRobin {
     private boolean fim = false;
     private Arquivo arquivo = new Arquivo();
     private ArrayList<Processo> listaProcesso = new ArrayList<Processo>();
+    Memoria memoria = new Memoria();
 
     public void escalonar() {
 
@@ -49,6 +52,15 @@ public class RoundRobin {
                     listaProcesso.get(i).setTempoExecucao(listaProcesso.get(i).getTempoExecucao() - quantum);
                     fim = false;
                 }
+
+                Bloco bloco = new Bloco(listaProcesso.get(i));
+                if (memoria.adicionarNaMemoria(bloco)) {
+                    System.out.println("Bloco adicionado!");
+                }else{
+                    System.out.println("Rode algum fit ai mano!");
+                }
+
+                System.out.println("");
             }
         }
 
@@ -59,9 +71,12 @@ public class RoundRobin {
                 arquivo.escreverArquivo(nome, tempoTermino, "RoundRobin");
             }
         }
-        
+
     }
 
+    /**
+     * | Somente gets e sets |
+     */
     public double getQuantum() {
         return quantum;
     }
@@ -77,7 +92,5 @@ public class RoundRobin {
     public void setArquivo(Arquivo arquivo) {
         this.arquivo = arquivo;
     }
-    
-    
 
 }

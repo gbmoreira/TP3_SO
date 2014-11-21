@@ -10,16 +10,20 @@ package estrutura;
  * @author José Renato
  */
 public class Bloco {
+
     private int tamanho;
     private boolean livre = true;
     Processo processo;
-    
-    public Bloco(Processo processo){
-        livre = false;
-        this.processo=processo;
-        tamanho = processo.getTamanho();
-    }    
 
+    public Bloco(Processo processo) {
+        livre = false;
+        this.processo = processo;
+        tamanho = processo.getTamanho();
+    }
+
+    /**
+     * | Somente gets e sets |
+     */
     public int getTamanho() {
         return tamanho;
     }
@@ -43,5 +47,5 @@ public class Bloco {
     public void setProcesso(Processo processo) {
         this.processo = processo;
     }
-    
+
 }

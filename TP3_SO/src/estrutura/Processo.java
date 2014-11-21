@@ -6,8 +6,7 @@
 package estrutura;
 
 /**
- * @author Gabriela 
- * Nome do processo, tempo necessário para concluir sua
+ * @author Gabriela Nome do processo, tempo necessário para concluir sua
  * execução (segundos) e tamanho que ocupará em memória (em MB). Exemplo de
  * arquivo de entrada:
  */
@@ -25,6 +24,9 @@ public class Processo {
         this.tamanho = tamanho;
     }
 
+    /**
+     * | Somente gets e sets |
+     */
     public boolean isPronto() {
         return pronto;
     }
