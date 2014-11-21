@@ -6,11 +6,15 @@
 
 package estrutura;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gabriela
  */
 public class Memoria {
+    
+    ArrayList<Bloco> memoria = new ArrayList<>();
     
     
     
