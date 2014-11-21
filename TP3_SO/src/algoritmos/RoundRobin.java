@@ -59,7 +59,7 @@ public class RoundRobin {
                 arquivo.escreverArquivo(nome, tempoTermino, "RoundRobin");
             }
         }
-
+        
     }
 
     public double getQuantum() {

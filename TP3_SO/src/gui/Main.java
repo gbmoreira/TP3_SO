@@ -5,7 +5,6 @@
  */
 package gui;
 
-
 import algoritmos.RoundRobin;
 import estrutura.Arquivo;
 import java.io.File;
@@ -13,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import controlador.Controlador;
 
 /**
  *
@@ -25,10 +25,11 @@ public class Main extends javax.swing.JFrame {
      */
     private File arquivo, diretorio;
     private String caminho;
-    private Arquivo a = new Arquivo();
 
     public Main() {
         diretorio = new File("/home/gabriela/Dropbox/Faculdade/8Periodo/SO/TP3_SO/TP3_SO/src/arquivoEntrada/");
+        caminho = this.caminhoArquivo();
+        Controlador controlador = new Controlador(caminho);
         initComponents();
     }
 
@@ -103,15 +104,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        try {
-            caminho = this.caminhoArquivo();
-            a.setCaminho(caminho);
-            RoundRobin robin = new RoundRobin();
-            robin.setArquivo(a);
-            robin.escalonar();
 
-        } catch (Exception e) {
-        }
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
