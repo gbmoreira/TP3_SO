@@ -18,7 +18,7 @@ public class FirstFit {
 
     public void executarFirstFit(Bloco bloco) {
 
-        if (memoria.isMemoriaCheia()) {
+        if (memoria.isMemoriaCheia(bloco)) {
 
             for (Bloco b : memoria.getMemoria()) {
 

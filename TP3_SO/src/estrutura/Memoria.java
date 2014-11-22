@@ -22,7 +22,7 @@ public class Memoria {
      * @return true caso de pra adicionar, false caso contrario.
      */
     public boolean adicionarNaMemoria(Bloco bloco) {
-        if (!isMemoriaCheia()) {
+        if (!isMemoriaCheia(bloco)) {
             memoria.add(bloco);
             return true;
         } else {
@@ -37,20 +37,21 @@ public class Memoria {
      *
      * @return true caso a memoria esteja cheia, false caso contrario.
      */
-    public boolean isMemoriaCheia() {
+    public boolean isMemoriaCheia(Bloco bloco) {
 
         int tamanhoTotalMemoria = 0;
 
-        for (Bloco bloco : memoria) {
-            tamanhoTotalMemoria += bloco.getTamanho();
+        for (Bloco b : memoria) {
+            tamanhoTotalMemoria += b.getTamanho();
         }
 
-        if (tamanhoTotalMemoria >= 1024) {
+        if ((tamanhoTotalMemoria+bloco.getTamanho()) > 1024) {
             return true;
         } else {
             return false;
         }
     }
+    
 
     public ArrayList<Bloco> getMemoria() {
         return memoria;
