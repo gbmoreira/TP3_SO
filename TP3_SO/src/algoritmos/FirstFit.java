@@ -29,9 +29,7 @@ public class FirstFit {
 
             blocosVazios = memoria.getBlocosVazios();
 
-            for (int i = 0; i < blocosVazios.size(); i++) {
-
-                Bloco blocoVazio = blocosVazios.get(i);
+            for (Bloco blocoVazio : blocosVazios) {
                 int indiceNovoBloco;
 
                 if (blocoVazio.getTamanho() > bloco.getTamanho()) {
@@ -46,15 +44,11 @@ public class FirstFit {
 
                     blocoVazio.setIndexInicioBloco(indiceNovoBloco + 1);
                     blocoVazio.setLivre(true);
-                    blocoVazio.setTamanho(0);
                     
                     memoria.adicionarNaMemoria(indiceNovoBloco, bloco);
-                    memoria.adicionarNaMemoria(indiceNovoBloco + 1, blocoVazio);
-//                    memoria.adicionarNaMemoria(bloco); temos que informar o indice pra inserir na posicao correta
-//                    memoria.adicionarNaMemoria(b);
-                    continue;
+                    memoria.atualizarIndicesMemoria();
+                    break;                    
                 }
-
             }
         }
     }
@@ -66,8 +60,6 @@ public class FirstFit {
      * ocupara os primeiros espacos com o arquivo, sequencialmente, ate que todo
      * o bloco seja inserido. Assim teremos o bloco dividido em duas partes: uma
      * com o tamanho do bloco inserido, e a outra com o restante do espaco.
-     *
-     *
      *
      *
      * @param blocoVazio

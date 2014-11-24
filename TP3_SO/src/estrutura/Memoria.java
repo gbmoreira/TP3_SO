@@ -20,6 +20,7 @@ public class Memoria {
      * Este metodo adiciona o bloco na memoria caso ela esteja vazia. Adiciona
      * de forma que empurre todos os outros blocos para as posicoes posteriores.
      *
+     * @param indice
      * @param bloco, este bloco sera adicionado a memoria
      * @return true caso de pra adicionar, false caso contrario.
      */
@@ -73,6 +74,15 @@ public class Memoria {
         }
 
         return blocosVazios;
+    }
+
+    /**
+     * Este metodo percorre memoria atualiza todos os indices dos blocos.
+     */
+    public void atualizarIndicesMemoria() {
+        for (int i = 0; i < memoria.size(); i++) {
+            memoria.get(i).setIndexInicioBloco(i);
+        }
     }
 
     public ArrayList<Bloco> getMemoria() {
