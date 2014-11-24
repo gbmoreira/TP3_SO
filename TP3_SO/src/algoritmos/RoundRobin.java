@@ -49,18 +49,20 @@ public class RoundRobin {
                     tempoTotal += listaProcesso.get(i).getTempoExecucao();
                     listaProcesso.get(i).setTempoFinal(tempoTotal);
                     listaProcesso.get(i).setPronto(true);
-                    
                     fim = false;
+                    bloco.setLivre(false);
                 } else {
                     tempoTotal += quantum;
                     listaProcesso.get(i).setTempoExecucao(listaProcesso.get(i).getTempoExecucao() - quantum);
                     fim = false;
+                    bloco.setLivre(true);
+
                 }
 
-                if (memoria.adicionarNaMemoria(bloco)) {
+                if (memoria.adicionarNaMemoria(i,bloco)) {
                     System.out.println("Bloco adicionado!");
                 } else {
-                    FirstFit first = new FirstFit();
+                    FirstFit first = new FirstFit(memoria);
                     first.executarFirstFit(bloco);
                     System.out.println("Rode algum fit ai mano!");
                 }

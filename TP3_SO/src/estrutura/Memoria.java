@@ -23,10 +23,10 @@ public class Memoria {
      * @param bloco, este bloco sera adicionado a memoria
      * @return true caso de pra adicionar, false caso contrario.
      */
-    public boolean adicionarNaMemoria(Bloco bloco) {
+    public boolean adicionarNaMemoria(int indice, Bloco bloco) {
         if (!isMemoriaCheia(bloco)) {
             bloco.setIndexInicioBloco(indiceBlocos);
-            memoria.add(bloco);
+            memoria.add(indice, bloco);
             indiceBlocos++;
             return true;
         } else {

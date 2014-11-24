@@ -17,54 +17,62 @@ public class FirstFit {
 
     Memoria memoria = new Memoria();
 
-    public void executarFirstFit(Bloco bloco) {
-        
-        ArrayList<Bloco> blocosVazios = new ArrayList<>();
-        
-        if (memoria.isMemoriaCheia(bloco)) {
-                        
-            
-                blocosVazios = memoria.getBlocosVazios();
-                Bloco blocoVazio = blocosVazios.get(0);
-                int indiceNovoBloco;
-                
-                if (blocoVazio.getTamanho() < bloco.getTamanho()) {
-                    blocoVazio.setTamanho(this.divideBloco(blocoVazio , bloco));
-                    
-                    
-                    //if para saber qual posicao inserir na memoria
-                    if(blocoVazio.getIndexInicioBloco()==0){
-                        indiceNovoBloco = 0;
-                    }else{
-                        indiceNovoBloco = blocoVazio.getIndexInicioBloco();      
-                    }
-                    
-                    blocoVazio.setIndexInicioBloco(indiceNovoBloco +1);
-                    
-//                    memoria.adicionarNaMemoria(bloco); temos que informar o indice pra inserir na posicao correta
-                    
-                    
-//                    memoria.adicionarNaMemoria(b);
-            
-            }
+    FirstFit(Memoria memoria) {
+        this.memoria = memoria;
+    }
 
+    public void executarFirstFit(Bloco bloco) {
+
+        ArrayList<Bloco> blocosVazios = new ArrayList<>();
+
+        if (memoria.isMemoriaCheia(bloco)) {
+
+            blocosVazios = memoria.getBlocosVazios();
+
+            for (int i = 0; i < blocosVazios.size(); i++) {
+
+                Bloco blocoVazio = blocosVazios.get(i);
+                int indiceNovoBloco;
+
+                if (blocoVazio.getTamanho() > bloco.getTamanho()) {
+                    blocoVazio.setTamanho(this.divideBloco(blocoVazio, bloco));
+
+                    //if para saber qual posicao inserir na memoria
+                    if (blocoVazio.getIndexInicioBloco() == 0) {
+                        indiceNovoBloco = 0;
+                    } else {
+                        indiceNovoBloco = blocoVazio.getIndexInicioBloco();
+                    }
+
+                    blocoVazio.setIndexInicioBloco(indiceNovoBloco + 1);
+                    blocoVazio.setLivre(true);
+                    blocoVazio.setTamanho(0);
+                    
+                    memoria.adicionarNaMemoria(indiceNovoBloco, bloco);
+                    memoria.adicionarNaMemoria(indiceNovoBloco + 1, blocoVazio);
+//                    memoria.adicionarNaMemoria(bloco); temos que informar o indice pra inserir na posicao correta
+//                    memoria.adicionarNaMemoria(b);
+                    continue;
+                }
+
+            }
         }
     }
 
     /**
      * Este metodo eh responsavel por quebrar o bloco em duas partes.
-
+     *
      * Como o bloco a ser inserido é menor do que o bloco de destino, ele
      * ocupara os primeiros espacos com o arquivo, sequencialmente, ate que todo
      * o bloco seja inserido. Assim teremos o bloco dividido em duas partes: uma
      * com o tamanho do bloco inserido, e a outra com o restante do espaco.
      *
-     * 
-
-     * 
-     * @param blocoVazio 
+     *
+     *
+     *
+     * @param blocoVazio
      * @param blocoParaAlocar
-     * 
+     *
      * @return o numero do novo tamanho do bloco vazio.
      */
     public int divideBloco(Bloco blocoVazio, Bloco blocoParaAlocar) {
