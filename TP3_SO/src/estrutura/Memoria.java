@@ -14,10 +14,12 @@ import java.util.ArrayList;
 public class Memoria {
 
     ArrayList<Bloco> memoria = new ArrayList<>();
+    int indiceBlocos;
 
     /**
-     * Este metodo adiciona o bloco na memoria caso ela esteja vazia.
-     * 
+     * Este metodo adiciona o bloco na memoria caso ela esteja vazia. Adiciona
+     * de forma que empurre todos os outros blocos para as posicoes posteriores.
+     *
      * @param bloco, este bloco sera adicionado a memoria
      * @return true caso de pra adicionar, false caso contrario.
      */
@@ -45,13 +47,28 @@ public class Memoria {
             tamanhoTotalMemoria += b.getTamanho();
         }
 
-        if ((tamanhoTotalMemoria+bloco.getTamanho()) > 1024) {
+        if ((tamanhoTotalMemoria + bloco.getTamanho()) > 1024) {
             return true;
         } else {
             return false;
         }
     }
-    
+
+    /**
+     * Este metodo percorre  memoria e pega os blocos que estao livres.
+     *
+     * @return blocosVazios.
+     */
+    public ArrayList<Bloco> getBlocosVazios() {
+        ArrayList<Bloco> blocosVazios = new ArrayList<>();
+        for (Bloco bloco : memoria) {
+            if (bloco.isLivre()) {
+                blocosVazios.add(bloco);
+            }
+        }
+
+        return blocosVazios;
+    }
 
     public ArrayList<Bloco> getMemoria() {
         return memoria;

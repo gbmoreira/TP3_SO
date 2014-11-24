@@ -12,6 +12,7 @@ package estrutura;
 public class Bloco {
 
     private int tamanho;
+    private int indexInicioBloco;
     private boolean livre = true;
     Processo processo;
 
@@ -48,4 +49,12 @@ public class Bloco {
         this.processo = processo;
     }
 
+    public int getIndexInicioBloco() {
+        return indexInicioBloco;
+    }
+
+    public void setIndexInicioBloco(int indexInicioBloco) {
+        this.indexInicioBloco = indexInicioBloco;
+    }
+        
 }
