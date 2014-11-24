@@ -7,6 +7,7 @@ package algoritmos;
 
 import estrutura.Bloco;
 import estrutura.Memoria;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,16 +18,34 @@ public class FirstFit {
     Memoria memoria = new Memoria();
 
     public void executarFirstFit(Bloco bloco) {
-
+        
+        ArrayList<Bloco> blocosVazios = new ArrayList<>();
+        
         if (memoria.isMemoriaCheia(bloco)) {
-
-            for (Bloco b : memoria.getMemoria()) {
-
-                if ((b.isLivre()) && (b.getTamanho() < bloco.getTamanho())) {
-                    b.setTamanho(this.divideBloco(b , bloco));
+                        
+            
+                blocosVazios = memoria.getBlocosVazios();
+                Bloco blocoVazio = blocosVazios.get(0);
+                int indiceNovoBloco;
+                
+                if (blocoVazio.getTamanho() < bloco.getTamanho()) {
+                    blocoVazio.setTamanho(this.divideBloco(blocoVazio , bloco));
+                    
+                    
+                    //if para saber qual posicao inserir na memoria
+                    if(blocoVazio.getIndexInicioBloco()==0){
+                        indiceNovoBloco = 0;
+                    }else{
+                        indiceNovoBloco = blocoVazio.getIndexInicioBloco();      
+                    }
+                    
+                    blocoVazio.setIndexInicioBloco(indiceNovoBloco +1);
+                    
 //                    memoria.adicionarNaMemoria(bloco); temos que informar o indice pra inserir na posicao correta
+                    
+                    
 //                    memoria.adicionarNaMemoria(b);
-                }
+            
             }
 
         }

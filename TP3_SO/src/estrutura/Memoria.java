@@ -25,7 +25,9 @@ public class Memoria {
      */
     public boolean adicionarNaMemoria(Bloco bloco) {
         if (!isMemoriaCheia(bloco)) {
+            bloco.setIndexInicioBloco(indiceBlocos);
             memoria.add(bloco);
+            indiceBlocos++;
             return true;
         } else {
             return false;
@@ -37,6 +39,7 @@ public class Memoria {
      * 1024 na memoria. Isso eh verificado fazendo um somatorio do tamanho de
      * todos os processos.
      *
+     * @param bloco
      * @return true caso a memoria esteja cheia, false caso contrario.
      */
     public boolean isMemoriaCheia(Bloco bloco) {
@@ -55,15 +58,17 @@ public class Memoria {
     }
 
     /**
-     * Este metodo percorre  memoria e pega os blocos que estao livres.
+     * Este metodo percorre memoria e pega os blocos que estao livres.
      *
      * @return blocosVazios.
      */
     public ArrayList<Bloco> getBlocosVazios() {
         ArrayList<Bloco> blocosVazios = new ArrayList<>();
-        for (Bloco bloco : memoria) {
-            if (bloco.isLivre()) {
-                blocosVazios.add(bloco);
+
+        for (int i = 0; i < memoria.size(); i++) {
+            if (memoria.get(i).isLivre()) {
+                memoria.get(i).setIndexInicioBloco(i);
+                blocosVazios.add(memoria.get(i));
             }
         }
 
