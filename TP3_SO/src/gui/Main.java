@@ -25,17 +25,11 @@ public class Main extends javax.swing.JFrame {
      */
     private File arquivo, diretorio;
     private String caminho;
+    Controlador controlador;
 
     public Main() {
         diretorio = new File("/home/gabriela/Dropbox/Faculdade/8Periodo/SO/TP3/TP3_SO/TP3_SO/src/arquivoEntrada/");
-        try {
-            caminho = this.caminhoArquivo();
-
-        } catch (Exception e) {
-            
-        }
-
-        Controlador controlador = new Controlador(caminho);
+        Controlador controlador;
         initComponents();
     }
 
@@ -59,6 +53,36 @@ public class Main extends javax.swing.JFrame {
         return path.toString();
 
     }
+    
+    public void executarAlgoritmoSelecionado(String algoritmo){
+        
+        switch(algoritmo){
+            
+            case "-":
+                System.out.println("Wait");
+            case "First Fit":
+                System.out.println("First Fit");
+//                controlador.executarFirstFit();
+                break;
+            case "Best Fit":
+                System.out.println("Best Fit");
+//                controlador.executarFirstFit();
+                break;
+            case "Next Fit":
+                System.out.println("Next Fit");
+//                controlador.executarNextFit();
+                break;
+            case "Quick Fit":
+                System.out.println("Quick Fit");
+//                controlador.executarQuickFit();
+                break;
+            case "Worst Fit":
+                System.out.println("Worst Fit");
+//                controlador.executarWorstFit();
+                break;
+            
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,6 +93,8 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboAlgoritmo = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -76,6 +102,15 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gabriela - Trabalho Prático 3");
+
+        jComboAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "First Fit", "Next Fit", "Best Fit", "Worst Fit", "Quick Fit" }));
+        jComboAlgoritmo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboAlgoritmoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Escolha o algoritmo:");
 
         jMenu1.setText("Arquivo");
 
@@ -98,11 +133,21 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboAlgoritmo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 385, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboAlgoritmo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,9 +155,22 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        try {
+            caminho = this.caminhoArquivo();
+            controlador = new Controlador(caminho);
+        } catch (Exception e) {
 
+        }
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jComboAlgoritmoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAlgoritmoActionPerformed
+        // TODO add your handling code here:
+        String algoritmo = (String.valueOf(jComboAlgoritmo.getSelectedItem()));
+        jComboAlgoritmo.setSelectedItem("-");
+        this.executarAlgoritmoSelecionado(algoritmo);
+//        controlador.executarAlgoritmoSelecionado(algoritmo);
+    }//GEN-LAST:event_jComboAlgoritmoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +208,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboAlgoritmo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
